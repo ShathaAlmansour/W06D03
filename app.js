@@ -16,6 +16,8 @@ const information =[{
     name:"Shatha",
     age:24,
 },];
+
+// Read 
 app.get("/information", (req,res) => {
     res.status(200)
     res.json(information)
@@ -34,6 +36,20 @@ app.get("/information", (req,res) => {
     res.json("Not Found");
 }
 });
+
+// Add
+app.post("/create", (res,req) => {
+    const { name ,age} = req.body;
+    const newInfo = {name:req.body.name,
+        age: req.body.age,
+        };
+    information.push({name,age})
+    res.status(201).json({name,age});
+    });
+
+// Put 
+
+// Delete
 
 app.listen (PORT,() => {
     console.log (`Server is running ${PORT}`);
