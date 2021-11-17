@@ -49,6 +49,17 @@ app.post("/create", (res,req) => {
 
 // Put 
 
+app.put("/update/id", (req,res) => {
+    const{id} =req.params;
+    const{name,age}=req.body;
+    information.forEach((information) => {
+        if ( informationid == id){ 
+if (name != undefined) information.name=name;
+if ( age != undefined) information.age=age;
+    }});
+        res.status(200).json(information);
+});
+
 // Delete
 
 app.listen (PORT,() => {
