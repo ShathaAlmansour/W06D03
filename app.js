@@ -62,6 +62,19 @@ if ( age != undefined) information.age=age;
 
 // Delete
 
+app.delete("/delete", (req, res) => {
+const { id } = req.body;
+      let upInfo = information.map((item) => {
+        if (item.id === id) {
+          item.isdelete = true;
+        }
+        return item;
+      });
+      information(upInfo);
+      res.status(200).json(upMovies);
+    });
+  
+
 app.listen (PORT,() => {
     console.log (`Server is running ${PORT}`);
 })
